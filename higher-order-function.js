@@ -1,4 +1,10 @@
 /**
+ * ^^ A function which takes another function as an argument or 
+ * returns a function is known as a higher order function ^^
+ */
+
+//////////////////////////////////How to Pass a Function as an Argument to Another Function////////////////////////
+/**
  * Given an array return odd elements and even elements.
  * Here only the logic for filtering out odd and even elements is different so we write it in a 
  * separate function and pass it as a callback to this fucntion.
@@ -55,3 +61,48 @@ Array.prototype.filterFunctionPro = function(callback){
 }
 
 console.log(arr.filterFunctionPro(isOdd));
+
+/**
+ * Function chaining
+ * 
+ * We can also implement function chaining with our prototype implementation
+ * Let's first filter out all the numbers greater than 5. Then from the result, we'll filter out all the even numbers
+ */
+console.log('Function chaining', arr.filterFunctionPro(isGreaterThanFive).filterFunctionPro(isEven));
+
+/**
+ * This is how we can use higher order functions in JS to write mode modular, cleaner and, more maintainable code.
+ */
+
+//////////////////////////////////How to return a Function from Another Function////////////////////////
+
+/**
+ * We can return a function from another function because we treat functions in JavaScript as values.
+ */
+function calculate(operation){
+    switch(operation){
+        case 'ADD':
+            return function(a,b){
+                console.log(`${a} + ${b} = ${a+b}`)
+            };
+        case 'SUBTRACT':
+            return function(a,b){
+                console.log(`${a} - ${b} = ${a-b}`)
+            };
+    }
+}
+
+/**
+ * There are two ways to call this inner function
+ * 1]Call the returned function using a variable
+ * 2]Call the returned function using double parentheses
+ */
+
+const calculateAdd = calculate('ADD');
+calculateAdd(2,3);
+
+const calculateSubtract = calculate('SUBTRACT');
+calculateSubtract(2,3);
+
+calculate('ADD')(2,3);
+calculate('SUBTRACT')(2,3);
