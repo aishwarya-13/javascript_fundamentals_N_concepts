@@ -55,8 +55,11 @@ const obj2 = {
     key: "value"
 };
 
+const a = obj1;
+
 console.log(obj1 == obj2);//false both operands refer to different memory locations
 console.log(obj1 == obj1);//true both operands refer to same memory locations
+console.log('this',a == obj1);//true both refer to same memory location
 
 /**
  * Number object converted to number primitive
@@ -97,11 +100,9 @@ const arr2 = [true, 0.5, 'hi'];
 const str2 = arr2.toString(); //"true,0.5,hi"
 console.log(arr2 == str2);//true
 
-
-
-
-
-
-
-
+/**
+ * Crazy behavior
+ */
+console.log(undefined == null);//true
+console.log(NaN == NaN);//false
 

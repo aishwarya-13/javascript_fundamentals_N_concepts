@@ -1,4 +1,4 @@
-## Strict Equality (===)
+# Strict Equality (===)
 
 Unlike (==) operator (===) operator does not attempt type conversion.
 Instead, (===) operator always considers operands of different types to be different.
@@ -13,10 +13,14 @@ The strict equality operator essentially carries out only step 1(see Equality.md
     b. Strings must have the same characters in the same order.
     c. Booleans must be both true or both false.
 
-## Strict Inequality (!==)
+# Strict Inequality (!==)
 
 It is the negation of the strict equality operator so the following two lines will always give the same result:
 
 x !== y;
 
 !(x === y);
+
+# Special Note
+
+NaN, null and undefined will never === another type.

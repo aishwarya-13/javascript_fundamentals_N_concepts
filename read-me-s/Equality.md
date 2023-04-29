@@ -1,4 +1,4 @@
-## Equality (==)
+# Equality (==)
 
 -> The equality (==) operator checks whether its two operands are equal, returning a Boolean result. 
 -> Unlike the strict equality operator(===), it attempts to convert and compare operands that are of different types.
@@ -33,7 +33,7 @@ If either operand is NaN, return false; so NaN is never equal to NaN.
 -> String to BigInt: convert string to BigInt. If conversion fails return false.
 
 
-## Inequality operator (!=)
+# Inequality operator (!=)
 
 The inequality operator is negation the (==) operator. Following two lines always give same result
 
@@ -41,3 +41,7 @@ x != y
 !(x == y)
 
 So apply (==) rules get the result and negate it
+
+# Special Note
+
+NaN, null and undefined will never === another type.

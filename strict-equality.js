@@ -34,9 +34,12 @@ const obj2 = {
     key: "value"
 };
 
+const a = obj1;
+
 console.log(obj1 === obj2);//false both operands refer to different memory locations
 console.log(obj1 === obj1);//true both operands refer to same memory locations
 console.log('objects', obj1.toString() === obj2.toString());
+console.log(a === obj1);
 
 /**
  * Interview question
