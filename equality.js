@@ -105,4 +105,10 @@ console.log(arr2 == str2);//true
  */
 console.log(undefined == null);//true
 console.log(NaN == NaN);//false
+/**
+ * [] is converted to '' then comparison is done. '' == true.
+ * '' and true is converted to number.
+ * So, 0 == 1 will return false
+ */
+console.log([] == true);//false 
 
