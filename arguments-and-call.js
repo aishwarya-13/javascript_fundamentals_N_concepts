@@ -1,4 +1,8 @@
 /**
+ * Danger: Don't name any argument as "arguments" or dont create any local variable named as "arguments", this will override build in arguments object.
+ */
+
+/**
  * Write a simple function to tell whether 2 is passed as parameter or not?
  * 
  * arguments is a local variable, available inside all functions that provides a collection of all the arguments passed to the function.
@@ -17,5 +21,14 @@ console.log(isTwoPassed(3,4,5,6));//false
 console.log(isTwoPassed(2));//true
 
 /**
- * Danger: Don't name any argument as "arguments" or dont create any local variable named as "arguments", this will override build in arguments object.
+ * How could you set a prefix before everything you log? for example, if you log('my message') it will log: "(app) my message"
  */
+
+function logPrefix(){
+    const args = Array.prototype.slice.call(arguments);
+    args.unshift('(app)')
+    console.log.apply(console, args);
+}
+
+logPrefix('my message'); //(app) my message
+logPrefix('my message', 'your message'); //(app) my message your message 
