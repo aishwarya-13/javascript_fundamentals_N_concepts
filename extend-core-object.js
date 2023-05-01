@@ -44,3 +44,15 @@ Array.prototype.duplicator = function(){
 
 var arr = [1,2,3,4,5];
 console.log(arr.duplicator());
+
+/**
+ * Define a spacify function which takes a string as an argument, and returns the same string but with each character separated by a space. For example:
+spacify('hello world') // => 'h e l l o  w o r l d'
+ */
+
+String.prototype.spacify = function(){
+    const str = this;
+    return str.split('').join(' ');
+}
+
+console.log('<<>>', 'hello world'.spacify());
