@@ -19,3 +19,4 @@ So the function is letting me construct an object via a function
 
 Since the prototype and __proto__ refer to the same object, whenever you add a new function on the prototype it becomes available on all instances.
 
+JS supports only single-level inheritance
