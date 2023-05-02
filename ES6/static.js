@@ -36,3 +36,14 @@ console.log(Aishwarya.getInfo());
 console.log(Aishwarya.name);
 
 const obj = new Aishwarya();
+
+class ClassWithStaticInitializationBlock{
+    static property1 = 'Static property 1';
+    static property2;
+    static{
+        this.property2 = 'Static property 2';
+    }
+}
+
+console.log('SIB', ClassWithStaticInitializationBlock.property1)
+console.log('SIB', ClassWithStaticInitializationBlock.property2)
