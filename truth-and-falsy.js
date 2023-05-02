@@ -1,5 +1,5 @@
 /**
- * In JS 6 things are falsy and they are - false, null, undefined, 0, '',NaN
+ * In JS 6 things are falsy and they are - false, null, undefined, 0, '',NaN, -0
  * There are only two truthy things - true and everything that is not false
  */
 
@@ -14,6 +14,7 @@ const h = Boolean(/foo/);//true
 const i = true%1;//When you are trying to find reminder of true, true becomes 1 and reminder of 1 while dividing by 1 is 0. you will get same result if you doe false%1
 const j = ''%1;//true
 
+//Here non-boolean value is coereced to boolean value
 if(f){
     console.log('its true');
 }else{

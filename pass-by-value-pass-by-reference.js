@@ -42,7 +42,7 @@ const myobj1 = {
     b:30
 }
 
-console.log(`Before: ${JSON.stringify(myobj1)}`);
+console.log(`Before: ${JSON.stringify(myobj1)}`);//Before: {"a":20,"b":30}
 
 function change1(myobj1){
     //Changing the reference of the object
@@ -52,12 +52,12 @@ function change1(myobj1){
         c:'I am new'
     }
     myobj1.d = 'I am new too'
-    console.log(`Inside function: ${JSON.stringify(myobj1)}`);
+    console.log(`Inside function: ${JSON.stringify(myobj1)}`);//Inside function: {"a":20,"b":30,"c":"I am new","d":"I am new too"}
 }
 
 change1(myobj1);
 
-console.log(`After: ${JSON.stringify(myobj1)}`);
+console.log(`After: ${JSON.stringify(myobj1)}`);//After: {"a":20,"b":30}
 
 console.log(`===================End of pass by reference example=====================`)
 
@@ -67,17 +67,17 @@ const myobj2 = {
     b:30
 }
 
-console.log(`Before: ${JSON.stringify(myobj2)}`);
+console.log(`Before: ${JSON.stringify(myobj2)}`);//Before: {"a":20,"b":30}
 
 function change2(myobj2){
     //Mutating the original object
     myobj2.c = 'I am new'
-    console.log(`Inside function: ${JSON.stringify(myobj2)}`);
+    console.log(`Inside function: ${JSON.stringify(myobj2)}`);//Inside function: {"a":20,"b":30,"c":"I am new"}
 }
 
 change2(myobj2);
 
-console.log(`After: ${JSON.stringify(myobj2)}`);
+console.log(`After: ${JSON.stringify(myobj2)}`);//After: {"a":20,"b":30,"c":"I am new"}
 
 console.log(`===================End of pass by reference example=====================`)
 
