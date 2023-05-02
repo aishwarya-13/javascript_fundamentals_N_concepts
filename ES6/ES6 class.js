@@ -3,17 +3,20 @@
  */
 
 class Person{
+    myPublic = 'I am public';//public field
     constructor(name, age){
         this.name = name;
         this.age = age;
     }
 
+    //public method
     greet(){//while creating funcitons the function keyword is omitted in ES6
         return `Hello ${this.name}`;
     }
 }
 
 const personObj = new Person('Aishwarya', 30);
+console.log(personObj.myPublic);//can access public field
 console.log(personObj.greet());
 
 /**
@@ -36,4 +39,6 @@ class Employee extends Person{
 }
 
 const empObj = new Employee('Rohit', 32, 'Lead engineer');
+console.log(empObj.myPublic);
+console.log(empObj.greet());//calling Parent class function that is public
 console.log(Employee.getEmployeeDesignation(empObj) + ` in ${Employee.company}`);//calling static method and acessing static property
