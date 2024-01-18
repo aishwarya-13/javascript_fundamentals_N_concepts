@@ -15,7 +15,7 @@ a()
 console.log(this) //will output window object at global level
 
 //Example 3
-let c = function c(){
+let c = function(){
   this.newVar = 'I am new on this'
   console.log(this)//window object
 }

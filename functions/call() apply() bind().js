@@ -66,3 +66,47 @@ var logName4 = function(lang, job){
 
 logName4.apply(person2, ['english', 'engineer'])
 
+console.log('/////////////////////////////Applications//////////////////////////////////////////////')
+
+/**
+ * Applications
+ */
+
+//1. Function borrowing
+//You can grab methods from other objects use them as long as you have similar property names so that the function works
+console.log('Function borrowing', person.getFullName.bind(person2)())
+
+
+//2. Function currying
+function multiply(a, b){
+  console.log('a', a, 'b', b)
+  return a * b
+}
+
+//I am giving first parameter 2 and this will permanently set 'a' to 2
+const multiplyByTwo = multiply.bind(this, 2)
+
+console.log(multiplyByTwo(4))//4 will act as second parameter
+console.log(multiplyByTwo(8))//8 will act as a second paremeter in this case
+
+var multiplyByThree = multiply.bind(this, 3);
+console.log(multiplyByThree(10));
+
+/**
+* So 2 is permamently set as 'a'.
+* SO I have taken multiply() and made it multiplyByTwo() using bind()
+* I can make a multiplyByThree() etc.
+* So I took a function and creates a new function from it with some default parameters. That's called currying.
+*/
+
+
+function multiply(x){
+  return function(y){
+    return x * y
+  }
+}
+
+console.log(multiply(2)(3))
+
+console.log(multiply(3)(3))
+

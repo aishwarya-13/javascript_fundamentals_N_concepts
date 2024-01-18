@@ -2,7 +2,7 @@ function Pet(type, legs){
   this.type = type
   this.legs = legs
   this.logInfo = function(){
-    console.log(`The ${this.type} has ${this.legs} legs`)
+    console.log(`The Pet ${this.type} has ${this.legs} legs`)
   }
 }
 
@@ -42,13 +42,13 @@ function Pet1(type, legs){
 
 const myCat1 = new Pet1('Cat', 4)
 
-setTimeout(myCat1.logInfo, 1000)//The undefined has undefined legs
+setTimeout(myCat1.logInfo, 1000)//The Cat has 4 legs
 
-//Use call(), apply() or bind()
+//2. Use call(), apply() or bind()
 function Pet2(type, legs){
   this.type = type
   this.legs = legs
-  this.logInfo = ()=>{
+  this.logInfo = function(){
     console.log(`Pet2, The ${this.type} has ${this.legs} legs`) //The Cat has 4 legs
   }
 }

@@ -21,7 +21,7 @@ let obj = {
 
 obj.displayName()
 
-console.log('=============================================================')
+console.log('==========================Using self variable to fix the context===================================')
 
 /**
  * So in above scenario 'this' gives unintended error. What can we do in this case?
@@ -42,7 +42,7 @@ let obj1 = {
 			//So the self used here will end up being the object (since this points to the object).
 			//So I can mutate my object here as well
       self.firstname = 'Name changing again'//Here firstname of obj is not mutated. What happens is a new variable 'firstName' is created on the window object
-      console.log('self in setName in obj1', self)//this is window object because see how setName is invoked
+      console.log('self in setName in obj1', self)//this is obj1 with firstname as 'Name changing again'
     }
     setName()
   }
@@ -50,7 +50,7 @@ let obj1 = {
 
 obj1.displayName()
 
-console.log('=============================================================')
+console.log('=================================Using bind()============================')
 
 //Solution 2. Using bind()
 let obj2 = {
@@ -68,7 +68,7 @@ let obj2 = {
 
 obj2.displayName()
 
-console.log('=============================================================')
+console.log('==============================Using arrow function===============================')
 
 //Solution 3 : Using arrow function
 /**
@@ -76,7 +76,7 @@ console.log('=============================================================')
 	* Arrow functions make use of lexical env.
 	They resolve 'this' lexically
 	* So value of 'this' will depend on where we are placing it.
-	* So this in the inner function of map will point to team object
+	* So this in the inner function of map will point to the object
 	So using arrow functions the value of this will behaves as we would expect it to be.
 **/
 
@@ -87,7 +87,7 @@ let obj3 = {
     console.log('this in displayName in obj2',this)//this points to obj and firstname changes to Rohit - this is obj because displayName is invoked with obj
     setName = ()=>{
       this.firstname = 'I am changing name again!'
-      console.log('this in setName in obj2', this)
+      console.log('this in setName in obj2', this)//this points to obj and firstname changes to 'I am changing name again!'
     }
     setName()
   }
