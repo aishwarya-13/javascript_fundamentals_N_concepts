@@ -28,6 +28,6 @@ console.log(4);
 
  1. Sync code is executed first. Hence, 1 2 4 is executed
  2. Microtask (Promise) -> But, Promise is not fulfilled yet it is still pending so code will not execute at present
- 3. Macrotask: setTimeout() callback will be executed. Hence, "timerStart" and "timerEnd" will be executed
+ 3. Macrotask: setTimeout() callback will be executed (the sync code inside the setTimeout callback will execute) Hence, "timerStart" and "timerEnd" will be executed
     When resolve is called, Promise will be fulfilled. Hence, "success" will be printed
  */
