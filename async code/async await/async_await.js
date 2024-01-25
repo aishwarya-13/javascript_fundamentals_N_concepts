@@ -3,9 +3,12 @@
 //  * So it basically replaces the way we "use" a promise (not the way we create it)
 //  */
 
+console.log('start')
+
 //Creating that returns a promise
 function fetchData(){
   return new Promise((resolve, reject)=>{
+    console.log('promise')
     // Simulating an asynchronous operation (e.g., fetching data from an API)
     setTimeout(()=>{
       const success = true
@@ -14,7 +17,7 @@ function fetchData(){
       }else{
         reject('Error')
       }
-    },2000)
+    },200)
   })
 }
 
@@ -32,4 +35,24 @@ async function fetchDataEample(){
 
 //call the async function
 fetchDataEample()
+
+console.log('end')
+
+/**
+ O/P:
+
+ start
+ Fetching data...
+ promise
+ end
+ res Success
+
+ Explanation:
+
+ 1. Sync code: start, Fetching data..., promise
+ 2. Async call sent to the event loop
+ 3. Sync code: end
+ 4. Promise fulfilled: res Success
+ 
+ */
 
