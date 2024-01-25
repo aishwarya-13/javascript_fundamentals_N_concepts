@@ -1,19 +1,21 @@
-// function buildFunctions(){
-//   const arr = []
-//   for(var i=0; i<3; i++){
-//     arr.push(function(){
-//       console.log(i)
-//     })
-//   }
-//   return arr
-// }
+console.log('==================Closures===================')
 
-// //console.log(buildFunctions())//[ƒ, ƒ, ƒ]
+function buildFunctions(){
+  const arr = []
+  for(var i=0; i<3; i++){
+    arr.push(function(){
+      console.log(i)
+    })
+  }
+  return arr
+}
 
-// const fs = buildFunctions()
-// fs[0]()//3
-// fs[1]()//3
-// fs[2]()//3
+//console.log(buildFunctions())//[ƒ, ƒ, ƒ]
+
+const fs = buildFunctions()
+fs[0]()//3
+fs[1]()//3
+fs[2]()//3
 
 /**
 * What happens above?
@@ -31,25 +33,37 @@
 */
 
 /**
+ * How to fix it?
+ * 1. Use let
+ * 2. Use IIFE
+ */
+
+console.log('================= Using let =================================')
+
+/**
 * let is a block scope variable. So every time the for loop runs (i increments) it creates a new variable (new memory location)
 * So when fs[0] looks for variable i it gets i=0.
 * When fs[1] runs its gets i=1, when fs[2] is run it gets i=2
 */
-// function buildFunctions2(){
-//   var arr = [];
-//   for(let i=0; i<3; i++){
-//     arr.push(function(){
-//       console.log(i);
-//     })
-//     }
-//     return arr;
-//   }
+
+function buildFunctions2(){
+  var arr = [];
+  for(let i=0; i<3; i++){
+    arr.push(function(){
+      console.log(i);
+    })
+    }
+    return arr;
+  }
   
   
-//   var fs2 = buildFunctions2();
-//   fs2[0]();//0
-//   fs2[1]();//1
-//   fs2[2]();//2
+  var fs2 = buildFunctions2();
+  fs2[0]();//0
+  fs2[1]();//1
+  fs2[2]();//2
+
+
+console.log('================= Using IIFE =================================')
 
 /**
 * In previous examples we executed the individual function later so we got the value of i =3
@@ -58,19 +72,21 @@
 * It does not return the function but returns the value of the function execution. So in arr we get [undefined, undefined, undefined]
 */
 
-  // function buildFunctions3(){
-  //   const arr = []
-  //   for(var i=0; i<3; i++){
-  //     arr.push((function(){
-  //       console.log(i)//1 2 3
-  //     })())
-  //   }
-  //   return arr
-  // }
+  function buildFunctions3(){
+    const arr = []
+    for(var i=0; i<3; i++){
+      arr.push((function(){
+        console.log(i)//1 2 3
+      })())
+    }
+    return arr
+  }
   
-  // //console.log(buildFunctions())//[ƒ, ƒ, ƒ]
+  //console.log(buildFunctions())//[ƒ, ƒ, ƒ]
   
-  // buildFunctions3()
+  buildFunctions3()
+
+  console.log('================= Using IIF =================================')
 
 /**
 * Ex 2
@@ -96,3 +112,21 @@ const fs4 = buildFunctions4()
 fs4[0]()
 fs4[1]()
 fs4[2]()
+
+
+console.log('================= Using bind() =================================')
+
+function buildFunctions5(){
+  var arr = []
+  for(var i=0; i<3; i++){
+    arr.push(function(j){
+      console.log(j)
+    }.bind(console, i))
+  }
+  return arr
+}
+
+const fs5 = buildFunctions4()
+fs5[0]()
+fs5[1]()
+fs5[2]()
